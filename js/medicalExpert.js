@@ -3,17 +3,15 @@ function medicalExpert() {
     //variables de control
     var signo;
     var Digisigno;
+    var Digimejoria;
     var frecuenciaCardiaca;
     var tensionArterial;
     var saturacionOxigeno;
     var frecuenciaRespiratoria;
-    var normal;
-    var funciona;
     var electrocardiograma;
     var tratamientoFrecuencia;
     var temperatura;
-    var alta;
-    var baja;
+
 
 
     Digisigno = prompt("¿ Que signo vital va a tomar primero \n 1.Frecuencia cardiaca \n 2.Temperatura \n 3.Tension arterial \n 4.Saturacion de oxigeno \n 5. Frecuencia respiratoria ?");
@@ -33,125 +31,145 @@ function medicalExpert() {
 
                 //aqui input de normal o anormal para cardiograma electrocardiograma = normal
                 if (electrocardiograma == "normal") {
-                    console.log("Monitorizacion de signos vitales");
+                    alert("Monitorizacion de signos vitales");
                     break;
                 } else {
-                    console.log("Realizar tratamiento para estabilizar la frecuencia");
+                    alert("Realizar tratamiento para estabilizar la frecuencia");
                     //Logica para ver si funciona, 2 botones que asignen a tratamiento frecuencia = funciona o cualquier otro valor
-                    if (tratamientoFrecuencia != funciona) {
-                        console.log("Realizar Ecocardiografia y Pruebas de esfuerzo para descartar pericarditis o daño al miocardio");
-                        console.log("Despues, realizar tratamiento para estabilizar frecuencia cardiaca");
-                        console.log("¿ Mejoró el paciente ?");
+                    frecuenciaCardiaca = prompt("¿El tratamiento funciona? \n Digite FUNCIONA si el tratamiento funciona de lo contrario digite NO ");
+                    if (tratamientoFrecuencia != "funciona") {
+                        alert("Realizar Ecocardiografia y Pruebas de esfuerzo para descartar pericarditis o daño al miocardio");
+                        alert("Despues, realizar tratamiento para estabilizar frecuencia cardiaca");
+
+                        Digimejoria = prompt("¿ Mejoró el paciente ? \n Digite SI si el paciente mejoró, de lo contrario digite NO ");
                         //Aqui set valor de si o no expresado como true or false
+                        if (Digimejoria == "si") {
+                            mejoria = true
+                        }
+                        else {
+                            mejoria = false
+                        }
+
                         if (mejoria != true) {
-                            console.log("Realizar angiografia coronaria para descartar aneurisma o placa aterosclerotica");
-                            console.log("Realizar nuevo tratamiento para estabilizar frecuencia cardiaca")
-                            console.log("¿ Mejoró el paciente ?");
-                            //Logica que asigne true or false a mejoria mediante botones
+                            alert("Realizar angiografia coronaria para descartar aneurisma o placa aterosclerotica");
+                            alert("Realizar nuevo tratamiento para estabilizar frecuencia cardiaca")
+                            Digimejoria = prompt("¿ Mejoró el paciente ? \n Digite SI si el paciente mejoró, de lo contrario digite NO ");
+                            //Aqui set valor de si o no expresado como true or false
+                            if (Digimejoria == "si") {
+                                mejoria = true
+                            }
+                            else {
+                                mejoria = false
+                            }
                             if (mejoria != true) {
-                                console.log("Monitorizacion de todos los signos vitales debido a posible paro cardiaco, posible ingreso a cirugia")
+                                alert("Monitorizacion de todos los signos vitales debido a posible paro cardiaco, posible ingreso a cirugia")
                                 break;
                             }
                         } else {
-                            console.log("Monitorizacion de signos vitales");
+                            alert("Monitorizacion de signos vitales");
                             break;
                         }
 
                     } else {
-                        console.log("Monitorizacion de signos vitales");
+                        alert("Monitorizacion de signos vitales");
                         break;
                     }
                 }
 
 
             } else {
-                console.log("Revisar otros signos vitales");
+                alert("Revisar otros signos vitales");
                 break;
             }
 
             break;
         case 2:
-            console.log("¿ Es normal la temperatura ?")
-            if (temperatura != normal) {
+            temperatura = prompt("¿Es normal la temperatura? \n Digite NORMAL si la temperatura es normal de lo contrario digite NO ");
+            if (temperatura != "normal") {
 
-                console.log("Posible enfermedad cardiaca, virus o bacteria.");
-                console.log("¿ La temperatura es alta o baja ?");
+                alert("Posible enfermedad cardiaca, virus o bacteria.");
                 //Logica en botones para cambio de temperatura
-                if (temperatura == alta) {
-                    console.log("Aplicar compresiones frias.");
+                temperatura = prompt("¿ La temperatura es alta o baja ? \n Digite ALTA si la temperatura es altal de lo contrario digite BAJA ");
+
+                if (temperatura == "alta") {
+                    alert("Aplicar compresiones frias.");
                 } else {
-                    console.log("Sumministrar manta termica, en caso de mayor gravedad suminisitrar liquidos intravenosos tibios");
-                    console.log("Monitorizar temperatura");
+                    alert("Sumministrar manta termica, en caso de mayor gravedad suminisitrar liquidos intravenosos tibios");
+                    alert("Monitorizar temperatura");
                     break;
 
                 }
 
             } else {
-                console.log("Revisar otros signos vitales");
+                alert("Revisar otros signos vitales");
                 break;
             }
             break;
 
         case 3:
-            console.log("¿Es normal la Tension arterial ?");
             //logica para asignar valor normal u otra cosa segun la respuesta con boto
-            if (tensionArterial != normal) {
-                console.log("Posible enfermedad cardiaca");
-                console.log("¿ Es alta o baja ?");
-                if (tensionArterial == alta) {
-                    console.log("Suministrar medicamentos para la tension alta y monitorizar la tension");
+            tensionArterial = prompt("¿Es normal la Tension arterial ? \n Digite NORMAL si la tension arterial es normal, de lo contrario digite NO ");
+            if (tensionArterial != "normal") {
+                alert("Posible enfermedad cardiaca");
+                tensionArterial = prompt("¿Es alta o baja? \n Digite ALTA si la tension arterial es alta, de lo contrario digite BAJA ");
+                if (tensionArterial == "alta") {
+                    alert("Suministrar medicamentos para la tension alta y monitorizar la tension");
                     break;
                 } else {
-                    console.log("Suministrar medicamentos para la tension baja y monitorizar la tension");
+                    alert("Suministrar medicamentos para la tension baja y monitorizar la tension");
                     break;
                 }
 
             } else {
-                console.log("Revisar otros signos vitales");
+                alert("Revisar otros signos vitales");
                 break;
             }
 
         case 4:
-            console.log("¿ Es normal la saturacion de oxigeno ?");
+            saturacionOxigeno = prompt("¿ Es normal la saturacion de oxigeno ? \n Digite NORMAL si la saturación es normal, de lo contrario digite NO ");
+
             //Logica mediante botones para asignar valor normal o no a la saturacionOxigeno
-            if (saturacionOxigeno != normal) {
-                console.log("Posible enfermedad cardiaca");
-                console.log("¿ Es la saturacion de oxigeno baja ? ");
+            if (saturacionOxigeno != "normal") {
+                alert("Posible enfermedad cardiaca");
                 //logica mediante botones para cambiar valor de saturacionOxigeno
-                if (saturacionOxigeno == baja) {
-                    console.log("Realizar oxigenacion y monitorizar la saturacion");
+                saturacionOxigeno = prompt("¿ Es la saturacion de oxigeno baja ? \n Digite BAJA si la saturación es baja, de lo contrario digite NO ");
+                if (saturacionOxigeno == "baja") {
+                    alert("Realizar oxigenacion y monitorizar la saturacion");
                     break;
                 } else {
-                    console.log("Posible desequilibrio acido-base , realizar tratamiento para ello");
+                    alert("Posible desequilibrio acido-base , realizar tratamiento para ello");
                     break;
                 }
 
             } else {
-                console.log("Revisar otros signos vitales");
+                alert("Revisar otros signos vitales");
                 break;
             }
         case 5:
-            console.log("¿ Es normal la frecuencia respiratoria ?");
-            if (frecuenciaRespiratoria != normal) {
-                console.log("Posible enfermedad cardiaca");
-                console.log("¿ Es alta o baja la frecuencia respiratoria ?");
+
+            frecuenciaRespiratoria = prompt("¿ Es normal la frecuencia respiratoria ? \n Digite NORMAL si la frecuencia respiratoria es normal, de lo contrario digite NO ");
+
+            if (frecuenciaRespiratoria != "normal") {
+                alert("Posible enfermedad cardiaca");
+                frecuenciaRespiratoria = prompt("¿ Es alta o baja la frecuencia respiratoria ? \n Digite ALTA si la frecuencia respiratoria es alta, de lo contrario digite BAJA ");
+
                 //realizar logica mediante botones para asignar valor a frecuenciaRespiratoria alta o baja
-                if (frecuenciaRespiratoria == alta) {
-                    console.log("Realizar ventilacion para frecuencia alta y monitorizar la frecuencia cardiaca");
+                if (frecuenciaRespiratoria == "alta") {
+                    alert("Realizar ventilacion para frecuencia alta y monitorizar la frecuencia cardiaca");
                     break;
                 } else {
-                    console.log("Realizar ventilacion para frecuencia baja y monitorizar la frecuencia cardiaca");
+                    alert("Realizar ventilacion para frecuencia baja y monitorizar la frecuencia cardiaca");
                     break;
 
                 }
 
             } else {
-                console.log("Revisar otros signos vitales");
+                alert("Revisar otros signos vitales");
                 break;
             }
 
         default:
-            console.log("Signo vital no controlado");
+            alert("Signo vital no controlado");
             break;
     }
 }
